@@ -14,7 +14,6 @@ app.all('/*', (req, res) => {
         headers: req.headers
     })
     .then((pRes) => {
-        console.log(pRes);
         res.headers = pRes.headers;
         return pRes.json()
     })
@@ -28,4 +27,5 @@ app.all('/*', (req, res) => {
 
 const port = process.env.PORT || 5454
 console.log(`Post to ${ip.address()}:${port}`);
+console.log(`will be passed to ${process.env.DEST}`)
 app.listen(port);
